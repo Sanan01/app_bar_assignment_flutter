@@ -8,37 +8,29 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
-  Widget _buildLeadingWidget(BuildContext context) {
-    if (title == 'Profile') {
-      return IconButton(
-        icon: const Icon(Icons.arrow_back),
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
-      );
-    } else {
-      return IconButton(
-        icon: const Icon(Icons.menu),
-        onPressed: () {},
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: _buildLeadingWidget(context),
+      leading: IconButton(
+        icon: const Icon(Icons.menu, color: Colors.white),
+        onPressed: () {
+          Scaffold.of(context).openDrawer();
+        },
+      ),
       backgroundColor: Theme.of(context).colorScheme.secondary,
-      title: Text(title),
+      title: Text(
+        title,
+        style: const TextStyle(color: Colors.white),
+      ),
       actions: <Widget>[
         IconButton(
-          icon: const Icon(Icons.search),
+          icon: const Icon(Icons.search, color: Colors.white),
           onPressed: () {
             showSearch(context: context, delegate: SearchDelegateExample());
           },
         ),
         IconButton(
-          icon: const Icon(Icons.more_vert),
+          icon: const Icon(Icons.more_vert, color: Colors.white),
           onPressed: () {},
         ),
       ],
