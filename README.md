@@ -2,4 +2,4 @@
 
 A new Flutter project.
 
-## class assignment to make a appbar with search functionality
+## class assignment to make an appbar with search functionality
